@@ -1,0 +1,21 @@
+[submodule "deps/xtensor-stack"]
+	path = deps/xtensor-stack
+	url = https://github.com/xtensor-stack/xtl.git
+[submodule "deps/xtensor"]
+	path = deps/xtensor
+	url = https://github.com/xtensor-stack/xtensor.git
+[submodule "deps/xtl"]
+	path = deps/xtl
+	url = https://github.com/xtensor-stack/xtl.git
+[submodule "deps/drogon"]
+	path = deps/drogon
+	url = https://github.com/drogonframework/drogon.git
+[submodule "deps/piper-phonemize"]
+	path = deps/piper-phonemize
+	url = https://github.com/rhasspy/piper-phonemize.git
+[submodule "deps/espeak-ng"]
+	path = deps/espeak-ng
+	url = https://github.com/espeak-ng/espeak-ng.git
+[submodule "deps/libopusenc"]
+	path = deps/libopusenc
+	url = https://gitlab.xiph.org/xiph/libopusenc.git
