@@ -1,4 +1,7 @@
 build/
 .vscode
 .cache
+deps/install/
+onnxruntime-linux-aarch64-1.14.1.tgz
+deps/onnxruntime-linux-aarch64-1.14.1/
 

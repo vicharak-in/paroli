@@ -7,21 +7,14 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/")
 
-set(ORT_ROOT "" CACHE STRING "Path to ONNX Runtime root directory")
-if (ORT_ROOT STREQUAL "")
-    message(FATAL_ERROR "ORT_ROOT must be set")
-endif()
+set(CMAKE_PREFIX_PATH "${CMAKE_SOURCE_DIR}/deps/install")
+set(ORT_ROOT "${CMAKE_SOURCE_DIR}/deps/onnxruntime-linux-aarch64-1.14.1")
+
+include_directories(${CMAKE_SOURCE_DIR}/deps/install/include)
+link_directories(${CMAKE_SOURCE_DIR}/deps/install/lib)
 
 include_directories(${ORT_ROOT}/include)
 link_directories(${ORT_ROOT}/lib)
-
-set(PIPER_PHONEMIZE_ROOT "" CACHE STRING "Path to piper-phonemize root directory")
-if (PIPER_PHONEMIZE_ROOT STREQUAL "")
-    message(FATAL_ERROR "PIPER_PHONEMIZE_ROOT must be set")
-endif()
-
-include_directories(${PIPER_PHONEMIZE_ROOT}/include)
-link_directories(${PIPER_PHONEMIZE_ROOT}/lib)
 
 find_package(Drogon REQUIRED)
 find_package(fmt REQUIRED)
