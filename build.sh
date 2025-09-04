@@ -30,7 +30,7 @@ make install
 popd
 
 echo "=== Building xtensor ==="
-pushd $DEPS/xtl
+pushd $DEPS/xtensor
 git checkout 0.24.0
 mkdir -p build && cd build
 cmake .. -DCMAKE_INSTALL_PREFIX="$PREFIX"
@@ -70,3 +70,27 @@ if [ ! -d "$ORT_DIR" ]; then
   wget https://github.com/microsoft/onnxruntime/releases/download/v$ORT_VERSION/onnxruntime-linux-aarch64-$ORT_VERSION.tgz
   tar -xzf onnxruntime-linux-aarch64-$ORT_VERSION.tgz -C $DEPS
 fi
+
+echo "=== Fetching ONNX/RKNN Models ==="
+MODEL_DIR="onnx-model"
+mkdir -p "$MODEL_DIR"
+
+pushd "$MODEL_DIR"
+
+if [ ! -f encoder.onnx ]; then
+  wget -O encoder.onnx https://huggingface.co/marty1885/streaming-piper/resolve/main/ljspeech/encoder.onnx
+fi
+
+if [ ! -f decoder.onnx ]; then
+  wget -O decoder.onnx https://huggingface.co/marty1885/streaming-piper/resolve/main/ljspeech/decoder.onnx
+fi
+
+if [ ! -f decoder.rknn ]; then
+  wget -O decoder.rknn https://huggingface.co/marty1885/streaming-piper/resolve/main/ljspeech/decoder.rknn
+fi
+
+if [ ! -f config.json ]; then
+  wget -O config.json https://huggingface.co/marty1885/streaming-piper/resolve/main/ljspeech/config.json
+fi
+
+popd

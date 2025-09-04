@@ -10,6 +10,7 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/")
 set(CMAKE_PREFIX_PATH "${CMAKE_SOURCE_DIR}/deps/install")
 set(ORT_ROOT "${CMAKE_SOURCE_DIR}/deps/onnxruntime-linux-aarch64-1.14.1")
 
+include_directories(/home/vicharak/rknn-d/rknn-toolkit2/rknpu2/runtime/Linux/librknn_api/include/)
 include_directories(${CMAKE_SOURCE_DIR}/deps/install/include)
 link_directories(${CMAKE_SOURCE_DIR}/deps/install/lib)
 
