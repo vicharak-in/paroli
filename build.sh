@@ -54,6 +54,7 @@ cmake .. -DCMAKE_INSTALL_PREFIX="$PREFIX"
 make -j$(nproc)
 make install
 popd
+export ESPEAK_DATA_PATH=$(pwd)/../deps/install/share/espeak-ng-data
 
 echo "=== Building piper-phonemize ==="
 pushd $DEPS/piper-phonemize
